@@ -52,11 +52,8 @@ su postgres -c 'psql -c "CREATE USER vagrant WITH CREATEUSER;"' >> $LOGFILE
 echo 'Creating vagrant database in PostgreSQL...'
 su postgres -c 'psql -c "CREATE DATABASE vagrant;"' >> $LOGFILE
 
-echo 'Loading data into PostgreSQL...'
-su vagrant -c 'psql < proj/buildCrimeDataRaw.sql' >> $LOGFILE
-
 echo 'Running scripts as user vagrant...'
-su vagrant -c 'bash ~vagrant/proj/provision_script_vagrant.sh' >> $LOGFILE
+su vagrant -c 'bash ~vagrant/proj/provision_script_vagrant.sh'
 
 
 # change log file owner to vagrant

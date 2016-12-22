@@ -5,7 +5,7 @@ echo 'Installing miniconda'
 if [ ! -f ~/proj/Miniconda3-latest-Linux-x86_64.sh ]
 then
   #if the file hasn't been downlaoded, go get it.
-  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/proj/Miniconda3-latest-Linux-x86_64.sh
+  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/proj/Miniconda3-latest-Linux-x86_64.sh  >> $LOGFILE
 fi
 
 #execute the install program in batch mode (it won't ask for prompts and won't modify the path)
@@ -17,10 +17,10 @@ echo 'export PATH=~/miniconda3/bin:${PATH}' >> ~/.profile
 #modify the path for the rest of this scripts
 export PATH=~/miniconda3/bin:${PATH}
 
-echo 'setting up Jupyter'
+echo 'setting up Jupyter' >> $LOGFILE
 conda install -y jupyter
 
-echo 'setting up cvdjango'
+echo 'setting up cvdjango' >> $LOGFILE
 conda create -y -n cvdjango python django psycopg2
 source activate cvdjango
 pip install djangorestframework
