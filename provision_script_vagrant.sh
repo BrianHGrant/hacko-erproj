@@ -1,6 +1,7 @@
 #!/bin/bash
+LOGFILE=/home/vagrant/provision_script.log
 
-echo 'Installing miniconda'
+echo 'Installing miniconda...'
 #check to see if the file's already been downloaded (this step could be skiped)
 if [ ! -f ~/proj/Miniconda3-latest-Linux-x86_64.sh ]
 then
@@ -9,19 +10,23 @@ then
 fi
 
 #execute the install program in batch mode (it won't ask for prompts and won't modify the path)
-bash ~/proj/Miniconda3-latest-Linux-x86_64.sh -b
+bash ~/proj/Miniconda3-latest-Linux-x86_64.sh -b >> $LOGFILE
 
 #modify the path in profile
 echo 'export PATH=~/miniconda3/bin:${PATH}' >> ~/.profile
 
-#modify the path for the rest of this scripts
+#modify the path for the rest of this script
 export PATH=~/miniconda3/bin:${PATH}
 
-echo 'setting up Jupyter' >> $LOGFILE
-conda install -y jupyter
+echo 'Installing Jupyter...'
+conda install -y jupyter  >> $LOGFILE
 
-echo 'setting up cvdjango' >> $LOGFILE
-conda create -y -n cvdjango python django psycopg2
+echo 'Installing cvdjango...'
+conda create -y -n cvdjango python django psycopg2 >> $LOGFILE
+
 source activate cvdjango
-pip install djangorestframework
+
+echo 'Installing djangorestframework...'
+pip install djangorestframework >> $LOGFILE
+
 source deactivate cvdjango
