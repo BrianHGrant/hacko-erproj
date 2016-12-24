@@ -13,6 +13,8 @@ chown vagrant:vagrant $LOGFILE
 echo 'Adding postgis to list of trusted repositories...'
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt trusty-pgdg main" >> /etc/apt/sources.list'
 wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add - &> $LOGFILE
+
+echo 'Updating apt-get...'
 apt-get update -y &> $LOGFILE
 apt-get upgrade -y &> $LOGFILE
 
@@ -49,9 +51,12 @@ pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 # configure PostgreSQL
 
 echo 'Creating vagrant user in PostgreSQL...'
-su postgres -c 'psql -c "CREATE USER admin WITH CREATEUSER;"' &> $LOGFILE
+su postgres -c 'psql -c "CREATE USER vagrant WITH CREATEUSER;"' &> $LOGFILE
 
-echo 'Creating vagrant database in PostgreSQL...'
+#echo "Setting password for user admin to 'istrator'"
+#su postgres -c 'psql -c "ALTER USER admin WITH PASSWORD 'istrator';"' &> $LOGFILE
+
+echo 'Creating default database in PostgreSQL...'
 su postgres -c 'psql -c "CREATE DATABASE vagrant;"' &> $LOGFILE
 
 
