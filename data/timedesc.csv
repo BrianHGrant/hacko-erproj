@@ -1,0 +1,16 @@
+"TimeDesc_ID","Description","ID_911"
+0,"Received                                          ",
+1,"Initiated                                         ",
+2,"Entered                                           ","ENTRY:"
+3,"Dispatched                                        ","DISP  "
+4,"Enroute                                           ","ENROUT"
+5,"On Scene                                          ","ONSCNE"
+6,"Fire Under Control                                ",
+7,"Close                                             ","CLOSE "
+8,"With Patient                                      ",
+9,"Depart Scene                                      ",
+10,"Arrive Destination                                ",
+11,"Depart Destination                                ",
+12,"Clear                                             ","CLEAR "
+13,"In Quarters                                       ",
+14,"Reopen                                            ","REOPEN"

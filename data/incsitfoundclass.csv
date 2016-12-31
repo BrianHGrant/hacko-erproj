@@ -1,0 +1,11 @@
+"IncSitFoundClass_ID","Description","SortOrder"
+1,"FIRE/EXPLOSION                                    ",0
+2,"OVER PRESSURE RUPTURE, EXPLOSION, OVERHEAT        ",0
+3,"MEDICAL AID / RESCUE CALLS                        ",0
+4,"HAZARDOUS CONDITIONS                              ",0
+5,"SERVICE CALL                                      ",0
+6,"GOOD INTENT CALLS                                 ",0
+7,"FALSE CALLS                                       ",0
+8,"NATURAL CONDITIONS                                ",0
+9,"OTHER SITUATION FOUND                             ",0
+10,"MUTUAL AID RESPONSE                               ",0

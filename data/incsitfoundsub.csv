@@ -1,0 +1,58 @@
+"IncSitFoundSub_ID","IncSitFoundClass_ID","Description","SortOrder"
+11,1,"STRUCTURE FIRE                                    ",0
+12,1,"FIRE IN MOBILE PROPERTY USED AS A FIXED STRUCTURE ",0
+13,1,"AIRCRAFT                                          ",0
+14,1,"MOBILE PROPERTY (VEHICLE) FIRE                    ",0
+15,1,"NATURAL VEGETATION FIRE                           ",0
+16,1,"OUTSIDE RUBBISH FIRE                              ",0
+17,1,"SPECIAL OUTSIDE FIRE                              ",0
+18,1,"CULTIVATED VEGETATION, CROP FIRE                  ",0
+19,1,"FIRE/EXPLOSION, OTHER                             ",0
+20,2,"OVERPRESSURE RUPTURE, EXPLOSION, OVERHEAT, OTHER  ",0
+21,2,"OVERPRESSURE RUPTURE FROM STEAM                   ",0
+22,2,"OVERPRESSURE RUPTURE FROM AIR OR GAS              ",0
+23,2,"OVERPRESSURE RUPTURE, CHEMICAL REACTION           ",0
+24,2,"EXPLOSION                                         ",0
+25,2,"EXCESSIVE HEAT, SCORCH BURNS WITH NO IGNITION     ",0
+30,3,"RESCUE, EMERGENCY MEDICAL CALL (EMS), OTHER       ",0
+31,3,"MEDICAL ASSIST                                    ",0
+32,3,"EMERGENCY MEDICAL SERVICE (EMS)                   ",0
+33,3,"LOCK-IN                                           ",0
+34,3,"SEARCH FOR LOST PERSON                            ",0
+35,3,"EXTRICATION, RESCUE                               ",0
+36,3,"WATER OR ICE-RELATED RESCUE                       ",0
+37,3,"ELECTRICAL RESCUE                                 ",0
+38,3,"RESCUE OR EMS STANDBY                             ",0
+40,4,"HAZARDOUS CONDITIONS, OTHER                       ",0
+41,4,"COMBUSTIBLE/FLAMMABLE SPILLS & LEAKS              ",0
+42,4,"CHEMICAL RELEASE, REACTION OR TOXIC CONDITION     ",0
+43,4,"RADIOACTIVE CONDITION                             ",0
+44,4,"ELECTRICAL WIRING/EQUIPMENT PROBLEM               ",0
+46,4,"ACCIDENT, POTENTIAL ACCIDENT                      ",0
+47,4,"EXPLOSIVE, BOMB REMOVAL                           ",0
+48,4,"ATTEMPTED BURNING, ILLEGAL ACTION                 ",0
+50,5,"SERVICE CALL, OTHER                               ",0
+51,5,"PERSON IN DISTRESS                                ",0
+52,5,"WATER PROBLEM                                     ",0
+53,5,"SMOKE, ODOR PROBLEM                               ",0
+54,5,"ANIMAL PROBLEM, RESCUE                            ",0
+55,5,"PUBLIC SERVICE ASSISTANCE                         ",0
+56,5,"UNAUTHORIZED BURNING                              ",0
+57,5,"COVER ASSIGNMENT, STANDBY AT FIRE STATION, MOVE-UP",0
+60,6,"GOOD INTENT CALL, OTHER                           ",0
+61,6,"DISPATCH AND CANCELED ENROUTE                     ",0
+62,6,"WRONG LOCATION                                    ",0
+63,6,"CONTROLLED BURNING                                ",0
+64,6,"VICINITY ALARM                                    ",0
+65,6,"STEAM, OTHER GAS MISTAKEN FOR SMOKE               ",0
+66,6,"EMS CALL WHERE PARTY HAS BEEN TRANSPORTED         ",0
+67,6,"HAZMAT RELEASE INVESTIGATION W/ NO HAZMAT         ",0
+70,7,"FALSE ALARM AND FALSE CALL, OTHER                 ",0
+71,7,"MALICIOUS, MISCHIEVOUS FALSE ALARM                ",0
+72,7,"BOMB SCARE                                        ",0
+73,7,"SYSTEM OR DETECTOR MALFUNCTION                    ",0
+74,7,"UNINTENTIONAL SYSTEM/DETECTOR OPERATION - NO FIRE ",0
+80,8,"SEVERE WEATHER & NATURAL DISASTER                 ",0
+90,9,"SPECIAL TYPE OF INCIDENT                          ",0
+91,9,"CITIZEN COMPLAINT                                 ",0
+100,10,"MUTUAL AID RESPONSE                               ",0
