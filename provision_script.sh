@@ -5,6 +5,7 @@ echo 'Setting up logfile'
 LOGFILE=/home/vagrant/provision_script.log
 echo > $LOGFILE
 
+
 # change log file owner to vagrant
 chown vagrant:vagrant $LOGFILE
 
@@ -33,12 +34,12 @@ echo 'Installing Python for Postgres...'
 apt-get install -y postgresql-plpython3-9.5 &> $LOGFILE
 echo 'Installing pip...'
 apt-get install -y python-pip &> $LOGFILE
+echo 'Upgrading pip...'
+pip install --upgrade pip &> $LOGFILE
 echo 'Installing dos2unix...'
 apt-get install -y dos2unix &> $LOGFILE
-
 echo 'Cleaning up APT...'
 apt-get autoremove - &> $LOGFILE
-
 
 
 # install Python packages
@@ -47,24 +48,19 @@ echo 'Installing csvkit...'
 pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 
-
 # configure PostgreSQL
 
-echo 'Creating vagrant user in PostgreSQL...'
-su postgres -c 'psql -c "CREATE USER vagrant WITH CREATEUSER;"' &> $LOGFILE
+echo 'Creating default fire database in PostgreSQL...'
+su postgres -c 'psql -c "CREATE DATABASE fire;"' &> $LOGFILE
 
-#echo "Setting password for user admin to 'istrator'"
-#su postgres -c 'psql -c "ALTER USER admin WITH PASSWORD 'istrator';"' &> $LOGFILE
-
-echo 'Creating default database in PostgreSQL...'
-su postgres -c 'psql -c "CREATE DATABASE vagrant;"' &> $LOGFILE
+echo 'Setting postgres admin password to "vagrant"...'
+bash ~vagrant/proj/set_access.sh vagrant &> $LOGFILE
 
 
 # run secondary script as user vagrant
 
 echo 'Running scripts as user vagrant...'
 su vagrant -c 'bash ~vagrant/proj/provision_script_vagrant.sh'
-
 
 
 echo
