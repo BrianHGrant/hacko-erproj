@@ -11,13 +11,13 @@ psql -f $SQL/create-db-er_fire.sql -v db=$DB
 
 # Create data tables
 echo 'Creating tables...'
+psql -f $SQL/create-table-incident.sql $DB
+psql -f $SQL/create-table-inctimes.sql $DB
 psql -f $SQL/create-table-agency.sql $DB
 psql -f $SQL/create-table-alarmlevel.sql $DB
-psql -f $SQL/create-table-incident.sql $DB
 psql -f $SQL/create-table-incsitfoundclass.sql $DB
 psql -f $SQL/create-table-incsitfound.sql $DB
 psql -f $SQL/create-table-incsitfoundsub.sql $DB
-psql -f $SQL/create-table-inctimes.sql $DB
 psql -f $SQL/create-table-mutualaid.sql $DB
 psql -f $SQL/create-table-responder.sql $DB
 psql -f $SQL/create-table-responderunit.sql $DB
