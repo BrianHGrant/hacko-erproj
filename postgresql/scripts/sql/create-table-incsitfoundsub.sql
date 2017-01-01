@@ -5,6 +5,5 @@ CREATE TABLE incsitfoundsub (
   "SortOrder" INTEGER,
 
   PRIMARY KEY ("IncSitFoundSub_ID"),
-  FOREIGN KEY ("IncSitFoundClass_ID")
-    REFERENCES incsitfoundclass ("IncSitFoundClass_ID")
+  FOREIGN KEY ("IncSitFoundClass_ID") REFERENCES incsitfoundclass ("IncSitFoundClass_ID")
 );

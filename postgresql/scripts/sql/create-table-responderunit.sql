@@ -9,8 +9,6 @@ CREATE TABLE responderunit (
   "VersaTerm" VARCHAR(10),
 
   PRIMARY KEY ("ResponderUnit_ID")
-  FOREIGN KEY ("Station_ID")
-    REFERENCES station ("Station_ID"),
-  FOREIGN KEY ("Agency_ID")
-    REFERENCES agency ("Agency_ID")
+  FOREIGN KEY ("Station_ID") REFERENCES station ("Station_ID"),
+  FOREIGN KEY ("Agency_ID") REFERENCES agency ("Agency_ID")
 );

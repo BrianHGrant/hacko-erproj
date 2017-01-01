@@ -23,12 +23,8 @@ CREATE TABLE incident (
   "IncSitFoundPrm_ID" INTEGER,
 
   PRIMARY KEY ("Incident_ID"),
-  FOREIGN KEY ("AlarmLevel_ID")
-    REFERENCES alarmlevel ("AlarmLevel_ID"),
-  FOREIGN KEY ("MutualAid_ID")
-    REFERENCES mutualaid ("MutualAid_ID"),
-  FOREIGN KEY ("TypeNatureCode_ID")
-    REFERENCES typenaturecode ("TypeNatureCode_ID"),
-  FOREIGN KEY ("IncSitFoundPrm_ID")
-    REFERENCES incsitfound ("IncSitFound_ID"),
+  FOREIGN KEY ("AlarmLevel_ID") REFERENCES alarmlevel ("AlarmLevel_ID"),
+  FOREIGN KEY ("MutualAid_ID") REFERENCES mutualaid ("MutualAid_ID"),
+  FOREIGN KEY ("TypeNatureCode_ID") REFERENCES typenaturecode ("TypeNatureCode_ID"),
+  FOREIGN KEY ("IncSitFoundPrm_ID") REFERENCES incsitfound ("IncSitFound_ID")
 );

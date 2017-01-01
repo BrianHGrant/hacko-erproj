@@ -8,6 +8,5 @@ CREATE TABLE incsitfound (
   "NFIRS" VARCHAR(3),
 
   PRIMARY KEY ("IncSitFound_ID"),
-  FOREIGN KEY ("IncSitFoundSub_ID")
-    REFERENCES incsitfoundsub ("IncSitFoundSub_ID")
+  FOREIGN KEY ("IncSitFoundSub_ID") REFERENCES incsitfoundsub ("IncSitFoundSub_ID")
 );

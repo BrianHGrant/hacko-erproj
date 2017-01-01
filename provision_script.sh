@@ -59,8 +59,8 @@ su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';
 echo 'Configuring DB...'
 su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
 
-echo 'Setting postgres admin login to password atuhentication with password "vagrant"...'
-bash ~vagrant/proj/set_access.sh vagrant &> $DBLOG
+echo 'Setting postgres admin login to password authentication with password "vagrant"...'
+bash ~vagrant/proj/postresql/scripts/bin/set_auth_md5.sh vagrant &> $DBLOG
 
 
 # run secondary script as user vagrant
