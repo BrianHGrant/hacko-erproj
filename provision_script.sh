@@ -57,7 +57,7 @@ su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\"" 
 su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';" &> $DBLOG
 
 echo 'Configuring DB...'
-su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh' &> $DBLOG
+su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
 
 echo 'Setting postgres admin login to password atuhentication with password "vagrant"...'
 bash ~vagrant/proj/set_access.sh vagrant &> $DBLOG
