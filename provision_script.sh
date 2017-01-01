@@ -50,8 +50,10 @@ pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 # configure PostgreSQL
 
-echo 'Creating default fire database in PostgreSQL...'
-su postgres -c 'psql -c "CREATE DATABASE fire;"' &> $LOGFILE
+echo 'Configuring DB...'
+su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh' &> $LOGFILE
+
+#TODO DB setup
 
 echo 'Setting postgres admin password to "vagrant"...'
 bash ~vagrant/proj/set_access.sh vagrant &> $LOGFILE
