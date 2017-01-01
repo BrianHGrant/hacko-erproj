@@ -3,11 +3,13 @@
 
 echo 'Setting up logfile'
 LOGFILE=/home/vagrant/provision_script.log
+DBLOG=/home/vagrant/db.log
 echo > $LOGFILE
+echo > $DBLOG
 
 
 # change log file owner to vagrant
-chown vagrant:vagrant $LOGFILE
+#chown vagrant:vagrant $LOGFILE
 
 
 # Add postgis to list of trusted repositories
@@ -50,13 +52,15 @@ pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 # configure PostgreSQL
 
+echo 'Configuring postgres...'
+su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\"" &> $DBLOG
+su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';" &> $DBLOG
+
 echo 'Configuring DB...'
-su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh' &> $LOGFILE
+su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh' &> $DBLOG
 
-#TODO DB setup
-
-echo 'Setting postgres admin password to "vagrant"...'
-bash ~vagrant/proj/set_access.sh vagrant &> $LOGFILE
+echo 'Setting postgres admin login to password atuhentication with password "vagrant"...'
+bash ~vagrant/proj/set_access.sh vagrant &> $DBLOG
 
 
 # run secondary script as user vagrant
