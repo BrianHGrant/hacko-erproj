@@ -9,7 +9,7 @@ echo > $DBLOG
 
 
 # change log file owner to vagrant
-#chown vagrant:vagrant $LOGFILE
+chown vagrant:vagrant $LOGFILE
 
 
 # Add postgis to list of trusted repositories
@@ -50,26 +50,34 @@ echo 'Installing csvkit...'
 pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 
-# configure PostgreSQL
-
-echo 'Configuring postgres...'
-su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\"" &> $DBLOG
-su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';" &> $DBLOG
-
-echo 'Configuring DB...'
-su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
-
-echo 'Setting postgres admin login to password authentication with password "vagrant"...'
-bash ~vagrant/proj/postresql/scripts/bin/set_auth_md5.sh vagrant &> $DBLOG
-
-
 # run secondary script as user vagrant
 
 echo 'Running scripts as user vagrant...'
 su vagrant -c 'bash ~vagrant/proj/provision_script_vagrant.sh'
 
 
-echo
+# configure PostgreSQL
+
+# check to see if data is extracted already
+if [ ! -f /home/vagrant/proj/data/agency.csv ]
+then
+  # if no data, extract it
+  tar -xf /home/vagrant/proj/data/emrep_sample_data.tar -C /home/vagrant/proj/data/
+fi
+
+echo 'Building DB...'
+su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
+
+echo 'Configuring postgres users...'
+su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\""
+su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';"
+
+echo 'Setting postgres admin login to password authentication with password "vagrant"...'
+bash /home/vagrant/proj/postgresql/scripts/bin/set_auth_md5.sh vagrant
+
+
+
+echo ''
 echo 'Finished installing packages.'
 echo 'Run the following line on your host machine:'
 echo '$ vagrant plugin install vagrant-vbguest'
