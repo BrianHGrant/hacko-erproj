@@ -11,33 +11,19 @@ psql -f $SQL/create-db-er_fire.sql -v db=$DB
 
 # Create data tables
 echo 'Creating tables...'
-echo 'Create alarmlevel:'
 psql -f $SQL/create-table-alarmlevel.sql $DB
-echo 'Create mutualaid:'
 psql -f $SQL/create-table-mutualaid.sql $DB
-echo 'Create typenaturecode:'
 psql -f $SQL/create-table-typenaturecode.sql $DB
-echo 'Create insitfoundclass:'
 psql -f $SQL/create-table-incsitfoundclass.sql $DB
-echo 'Create incsitfoundsub:'
 psql -f $SQL/create-table-incsitfoundsub.sql $DB
-echo 'Create incsitfound:'
 psql -f $SQL/create-table-incsitfound.sql $DB
-echo 'Create incident:'
 psql -f $SQL/create-table-incident.sql $DB
-echo 'Create agency:'
 psql -f $SQL/create-table-agency.sql $DB
-echo 'Create station:'
 psql -f $SQL/create-table-station.sql $DB
-echo 'Create responderunit:'
 psql -f $SQL/create-table-responderunit.sql $DB
-echo 'Create responder:'
 psql -f $SQL/create-table-responder.sql $DB
-echo 'Create timedesc:'
 psql -f $SQL/create-table-timedesc.sql $DB
-echo 'Create inctimes:'
 psql -f $SQL/create-table-inctimes.sql $DB
-echo 'Create situationfound:'
 psql -f $SQL/create-table-situationfound.sql $DB
 
 
