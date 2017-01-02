@@ -4,7 +4,7 @@ CREATE TABLE incident (
   "RunNumber" VARCHAR(20),
   "AlarmLevel_ID" INTEGER,
   "MutualAid_ID" INTEGER,
-  "FMARespComp" VARCHAR(3),
+  "FMARespComp" VARCHAR(6),
   "FireBlock" VARCHAR(6),
   "NeighborAssoc" VARCHAR(18),
   "CensusTract" VARCHAR(6),
