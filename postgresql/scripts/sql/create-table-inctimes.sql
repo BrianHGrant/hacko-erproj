@@ -5,7 +5,7 @@ CREATE TABLE inctimes (
   "Responder_ID" INTEGER,
   "RealTime" TIMESTAMP,
 
-  PRIMARY KEY ("IncTimes_ID"),
-  FOREIGN KEY ("Incident_ID", "Responder_ID") REFERENCES responder ("Incident_ID", "Responder_ID"),
-  FOREIGN KEY ("TimeDesc_ID") REFERENCES timedesc ("TimeDesc_ID")
+  PRIMARY KEY ("IncTimes_ID")
+  --FOREIGN KEY ("Incident_ID", "Responder_ID") REFERENCES responder ("Incident_ID", "Responder_ID"),
+  --FOREIGN KEY ("TimeDesc_ID") REFERENCES timedesc ("TimeDesc_ID")
 );

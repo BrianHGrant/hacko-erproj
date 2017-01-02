@@ -7,6 +7,6 @@ CREATE TABLE incsitfound (
   "Inactive" INTEGER,
   "NFIRS" VARCHAR(3),
 
-  PRIMARY KEY ("IncSitFound_ID"),
-  FOREIGN KEY ("IncSitFoundSub_ID") REFERENCES incsitfoundsub ("IncSitFoundSub_ID")
+  PRIMARY KEY ("IncSitFound_ID")
+  --FOREIGN KEY ("IncSitFoundSub_ID") REFERENCES incsitfoundsub ("IncSitFoundSub_ID")
 );
