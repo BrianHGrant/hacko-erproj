@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PROJ="/home/vagrant/proj"
 
 echo 'Setting up logfile'
 LOGFILE=/home/vagrant/provision_script.log
@@ -50,30 +51,35 @@ echo 'Installing csvkit...'
 pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 
+# quietly fix line endings
+dos2unix $PROJ/postgresql/scripts/bin/fix_line_endings.sh &> $LOGFILE
+bash $PROJ/postgresql/scripts/bin/fix_line_endings.sh &> $LOGFILE
+
+
 # run secondary script as user vagrant
 
 echo 'Running scripts as user vagrant...'
-su vagrant -c 'bash ~vagrant/proj/provision_script_vagrant.sh'
+su vagrant -c "bash $PROJ/provision_script_vagrant.sh"
 
 
 # configure PostgreSQL
 
 # check to see if data is extracted already
-if [ ! -f /home/vagrant/proj/data/agency.csv ]
+if [ ! -f $PROJ/data/agency.csv ]
 then
   # if no data, extract it
-  tar -xf /home/vagrant/proj/data/emrep_sample_data.tar -C /home/vagrant/proj/data/
+  tar -xf $PROJ/data/emrep_sample_data.tar -C $PROJ/data/
 fi
 
 echo 'Building DB...'
-su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
+su postgres -c "bash $PROJ/postgresql/scripts/bin/build_db.sh"
 
 echo 'Configuring postgres users...'
 su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\""
 su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer;' er_fire"
 
 echo 'Setting postgres admin login to password authentication with password "vagrant"...'
-bash /home/vagrant/proj/postgresql/scripts/bin/set_auth_md5.sh vagrant
+bash $PROJ/postgresql/scripts/bin/set_auth_md5.sh vagrant
 
 
 
