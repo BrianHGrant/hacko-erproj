@@ -9,6 +9,10 @@
 
 3. Download XQuartz (_unless you know you don't need it_): https://www.xquartz.org/
 
-4. Clone this directory and cd into it
+4. Fully restart your comp if you installed XQuartz
 
-5. Run 'vagrant up'
+5. Clone this directory and cd into it
+
+6. Run 'vagrant up'. The setup may take 5-10 minutes
+
+7. Once setup finishes installing everything, run 'vagrant ssh' to connect to the virtual box 
