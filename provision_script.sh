@@ -70,7 +70,7 @@ su postgres -c 'bash ~vagrant/proj/postgresql/scripts/bin/build_db.sh'
 
 echo 'Configuring postgres users...'
 su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\""
-su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer';"
+su postgres -c "psql -c 'GRANT SELECT ON ALL TABLES IN SCHEMA public TO viewer;' er_fire"
 
 echo 'Setting postgres admin login to password authentication with password "vagrant"...'
 bash /home/vagrant/proj/postgresql/scripts/bin/set_auth_md5.sh vagrant
