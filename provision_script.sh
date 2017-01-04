@@ -51,11 +51,6 @@ echo 'Installing csvkit...'
 pip install csvkit &> $LOGFILE         # for commands 'csvsql' and 'csvstat'
 
 
-# quietly fix line endings
-dos2unix $PROJ/postgresql/scripts/bin/fix_line_endings.sh &> $LOGFILE
-bash $PROJ/postgresql/scripts/bin/fix_line_endings.sh &> $LOGFILE
-
-
 # run secondary script as user vagrant
 
 echo 'Running scripts as user vagrant...'
