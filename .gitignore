@@ -1,16 +1,3 @@
 .vagrant/
 Miniconda3-latest-Linux-x86_64.sh
-data/agency.csv
-data/alarmlevel.csv
-data/incident.csv
-data/incsitfound.csv
-data/incsitfoundclass.csv
-data/incsitfoundsub.csv
-data/inctimes.csv
-data/mutualaid.csv
-data/responder.csv
-data/responderunit.csv
-data/situationfound.csv
-data/station.csv
-data/timedesc.csv
-data/typenaturecode.csv
+data/*.csv
