@@ -68,6 +68,8 @@ fi
 
 echo 'Building DB...'
 su postgres -c "bash $PROJ/postgresql/scripts/bin/build_db.sh"
+echo 'Enabling PostGIS...'
+su postgres -c "psql -c \"CREATE EXTENSION postgis;\" er_fire"
 
 echo 'Configuring postgres users...'
 su postgres -c "psql -c \"CREATE USER viewer WITH NOINHERIT PASSWORD 'fire';\""
